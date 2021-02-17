@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Mono:wght@300&display=swap");
+.main-container {
+  display: flex;
+  min-height: 100vh;
+}
+.left-bar {
+  flex: 1;
+  border-right: #f2f2f2 solid;
+  border-width: 2px;
+  padding: 10px;
+}
+.left-bar > h2 {
+  font-family: "righteous";
+  color: turquoise;
+}
+.body-container {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.right-bar {
+  flex: 1;
+  border-left: #f2f2f2 solid;
+  border-width: 2px;
+  padding: 10px;
+}
+
+.right-bar > div > input {
+  border: none;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+/* .right-bar > div > input ::placeholder {
+  color: lightgray;
+  font: "righteous";
+} */
+
+.body-nav {
+  padding: 10px 0px;
+}
+.body-banner {
+  flex: 1;
+}
+.body-banner > img {
+  width: 100%;
+  max-height: 250px;
+}
+.movie-list {
+  flex: 2;
+}
