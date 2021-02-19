@@ -1,0 +1,19 @@
+.movie-content {
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  margin: 10px;
+}
+.movie-banner {
+  flex: 1;
+}
+.movie-banner > img {
+  /* height: 150px; */
+  width: 250px;
+}
+.movie-detail {
+  flex: 2;
+}
+.movie-description {
+  flex: 1;
+}
