@@ -6,7 +6,7 @@ class LeftBar extends Component {
       <div className="left-bar">
         <h2>Movie Hub</h2>
         <div>
-          <p>Menu</p>
+          <p className="active">Menu</p>
           <div>
             <p>Home</p>
             <p>Profile</p>
