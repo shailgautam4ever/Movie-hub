@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+:root {
+  --primaryColor: rgb(25, 179, 206);
+  --lightGray: #f2f2f2;
+}
 body {
   margin: 0;
   font-family: "roboto mono", -apple-system, BlinkMacSystemFont, "Segoe UI",
