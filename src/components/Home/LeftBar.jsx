@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 class LeftBar extends Component {
   state = {};
   render() {
     return (
       <div className="left-bar">
-        <h2>Movie Hub</h2>
+        <Link to="/">
+          <h2>Movie Hub</h2>
+        </Link>
         <div>
           <p className="active">Menu</p>
           <div>
