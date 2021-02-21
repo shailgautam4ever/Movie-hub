@@ -1,0 +1,12 @@
+.df {
+  display: flex;
+}
+.f1 {
+  flex: 1;
+}
+.fd-c {
+  flex-direction: column;
+}
+.t-bold {
+  font-weight: bold;
+}
