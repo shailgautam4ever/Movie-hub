@@ -7,8 +7,11 @@ import {
 } from "react-icons/ai";
 import { withRouter } from "react-router";
 import "./Movie.css";
+import movies from "../DummyData/movie.json";
 class Movie extends Component {
-  state = {};
+  state = {
+    movie: {},
+  };
   constructor(props) {
     super(props);
     console.log(window.location);
@@ -17,22 +20,30 @@ class Movie extends Component {
     //   console.log(b);
     // window.location.pathname = "/";
   }
+
+  componentDidMount() {
+    console.log(this.props);
+    const { id } = this.props.match.params;
+    const movie = movies[id];
+    this.setState({ movie });
+  }
   render() {
+    const { movie } = this.state;
     return (
       <>
         <div className="movie-content">
           <div className="movie-banner">
-            <img src="https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/tom-and-jerry-et00300988-16-02-2021-03-03-32.jpg"></img>
+            <img src={movie.img}></img>
           </div>
           <div className="movie-detail">
-            <h2> TOM & JERRY</h2>
-            <span>
-              Like <AiOutlineLike />
-            </span>
-            <span>
-              Spread Love give Love <AiTwotoneHeart />
-              <AiFillSmile />
-            </span>
+            <div className="md-1">
+              <span className="t-bold">{movie.name}</span>
+              <span>{movie.genre}</span>
+            </div>
+            <div className="md-2">
+              <button className="custom-button">Book Tickets</button>
+              <button className="custom-button">Buy or Rent</button>
+            </div>
           </div>
         </div>
         <div className="movie-description">
