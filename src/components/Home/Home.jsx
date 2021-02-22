@@ -5,7 +5,9 @@ import "./Home.css";
 import LeftBar from "./LeftBar";
 import Navbar from "./Navbar";
 import RightBar from "./RightBar";
+import Manage from '../Manage/Manage'
 import { Redirect, Route, Switch } from "react-router";
+import AddMovie from "../Manage/AddMovie";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -23,11 +25,19 @@ export default class Home extends React.Component {
               <Route path="/movie/:id">
                 <Movie />
               </Route>
+              <Route path='/manage/AddMovie'>
+              <AddMovie/>
+              </Route>
+              <Route path='/manage'>
+              <Manage/>
+              </Route>
               <Route exact path="/">
                 <BodyContent />
               </Route>
               <Redirect to="/"></Redirect>
             </Switch>
+
+            
           </div>
           <RightBar />
         </div>

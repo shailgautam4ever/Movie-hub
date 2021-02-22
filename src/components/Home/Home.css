@@ -9,9 +9,13 @@
   border-width: 2px;
   padding: 10px;
 }
-.left-bar h2 {
+.left-bar .nav-brand-name {
   font-family: "righteous";
   color: var(--primaryColor);
+  font-size: x-large;
+}
+.left-bar img {
+  width: 50px;
 }
 .left-bar a {
   text-decoration: none;
@@ -74,8 +78,8 @@
 }
 .single-movie {
   /* background-color: #c5b8b8; */
-  height: 190px;
-  width: 120px;
+  height: 226px;
+  width: 158px;
   padding: 2px;
   margin: 10px;
 }
@@ -118,4 +122,9 @@
 }
 .single-movie {
   display: flex;
+}
+
+.active-nav {
+  background-color: var(--primaryColor);
+  color: white;
 }
