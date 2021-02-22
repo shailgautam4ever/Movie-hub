@@ -23,8 +23,8 @@
 .custom-button {
   border: none;
   border-radius: 15px;
-  padding: 20px;
-  background-color: rgb(127, 243, 127);
+  padding: 10px 20px;
+  background-color: pink;
   font-weight: bold;
   margin: 10px;
 }

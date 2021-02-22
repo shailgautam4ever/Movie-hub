@@ -25,7 +25,9 @@ class Movie extends Component {
     console.log(this.props);
     const { id } = this.props.match.params;
     const movie = movies[id];
-    this.setState({ movie });
+    if(movie) {
+      this.setState({ movie });
+    }
   }
   render() {
     const { movie } = this.state;
