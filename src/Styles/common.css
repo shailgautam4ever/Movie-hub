@@ -1,3 +1,8 @@
+.p-10 {
+  padding: 10px;
+}
+
+
 .df {
   display: flex;
 }
@@ -7,6 +12,18 @@
 .fd-c {
   flex-direction: column;
 }
+.ai-c {
+  align-items: center;
+}
 .t-bold {
   font-weight: bold;
 }
+.jc-sb {
+  justify-content: space-between;
+}
+.jc-sa {
+  justify-content: space-around;
+}
+
+
+
