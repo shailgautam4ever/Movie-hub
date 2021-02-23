@@ -1,0 +1,22 @@
+.Add-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  font-family: "righteous";
+  align-self: center;
+  padding: 10px;
+  margin-bottom: 50px;
+  color: darkcyan;
+}
+.wrapper {
+  margin: 10px;
+  box-shadow: 0px 5px 5px 5px lightgrey;
+  padding: 20px 90px;
+}
