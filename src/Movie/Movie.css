@@ -30,7 +30,8 @@
 }
 .custom-button:hover {
   cursor: pointer;
-  background-color: rgb(43, 201, 43);
+  background-color: rgb(161, 87, 100);
+  color: white;
 }
 
 .md-1 {

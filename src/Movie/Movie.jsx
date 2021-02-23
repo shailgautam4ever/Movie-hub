@@ -7,7 +7,7 @@ import {
 } from "react-icons/ai";
 import { withRouter } from "react-router";
 import "./Movie.css";
-import movies from "../DummyData/movie.json";
+import movies from "../DummyData/movie";
 class Movie extends Component {
   state = {
     movie: {},
@@ -25,7 +25,7 @@ class Movie extends Component {
     console.log(this.props);
     const { id } = this.props.match.params;
     const movie = movies[id];
-    if(movie) {
+    if (movie) {
       this.setState({ movie });
     }
   }
