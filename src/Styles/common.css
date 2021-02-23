@@ -1,7 +1,9 @@
 .p-10 {
   padding: 10px;
 }
-
+.m-10 {
+  margin: 10px;
+}
 
 .df {
   display: flex;
@@ -24,6 +26,6 @@
 .jc-sa {
   justify-content: space-around;
 }
-
-
-
+.ai-b {
+  align-items: baseline;
+}
