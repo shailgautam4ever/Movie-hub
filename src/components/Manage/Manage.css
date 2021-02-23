@@ -1,11 +1,5 @@
-/* .show-table{
-    border-collapse: collapse;
-    width: 100%;
-    border: 1px solid;
-} */
-
-.show-table{
-    /* background-color: aqua; */
-    padding: 10px;
-    margin: 10px;
+.show-table {
+  /* background-color: aqua; */
+  padding: 10px;
+  margin: 10px;
 }
