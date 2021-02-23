@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
-import movies from "../../DummyData/movie.json";
+import movies from "../../DummyData/movie";
 
 class RightBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      popular: movies,
+      movies,
     };
   }
   render() {
-    const { popular } = this.state;
+    const { movies } = this.state;
     return (
       <div className="right-bar">
         <div>
@@ -20,7 +20,7 @@ class RightBar extends Component {
           </div>
           <h2>Poupular</h2>
 
-          {popular
+          {movies
             .sort((a, b) => b.rating - a.rating)
             .slice(0, 3)
             .map((v, i) => (

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Banner from "../../assets/newBanner.jpg";
-import Movie from "../../Movie/Movie";
-import Navbar from "./Navbar";
-import movies from "../../DummyData/movie.json";
+// import Movie from "../../Movie/Movie";
+// import Navbar from "./Navbar";
+import movies from "../../DummyData/movie.js";
 class BodyContent extends Component {
   constructor(props) {
     super(props);
