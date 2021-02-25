@@ -17,7 +17,7 @@ const form = [
     label: "Rating",
   },
   {
-    id: "image",
+    id: "img",
     label: "Image",
   },
   {
@@ -29,28 +29,38 @@ const form = [
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      newMovie: {},
+    };
   }
+
+  handleOnStateChange = () => {
+    const { handleOnAdd } = this.props;
+    handleOnAdd(this.state.newMovie);
+    this.setState({
+      newMovie: {},
+    });
+  };
+
   handleOnChange = (e, id) => {
     const value = e.target.value;
-    this.setState({
-      [id]: value,
-    });
-    console.log(this.state);
+    const { newMovie } = this.state;
+    newMovie[id] = value;
+    this.setState({ newMovie });
   };
-  handleOnAdd = () => {
-    movies.push(this.state);
-  };
+
   render() {
+    const { newMovie } = this.state;
     return (
       <>
         <div className="Add-container fd-c">
           <div className="df fd-c jc-sb wrapper">
             <span className="title">Add New Movie</span>
             {form.map(({ label, type, id }) => (
-              <div className="df ai-b jc-sb">
+              <div key={id} className="df ai-b jc-sb">
                 <span>{label}</span>
                 <input
+                  value={newMovie[id] ? newMovie[id] : ""}
                   onChange={(e) => this.handleOnChange(e, id)}
                   className="search-bar"
                   type={type ? type : "text"}
@@ -59,7 +69,10 @@ export default class AddMovie extends React.Component {
             ))}
 
             <div>
-              <button onClick={this.handleOnAdd} className="custom-button">
+              <button
+                onClick={this.handleOnStateChange}
+                className="custom-button"
+              >
                 Add
               </button>
               <button className="custom-button">Cancel</button>
