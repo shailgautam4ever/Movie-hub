@@ -11,6 +11,7 @@ class RightBar extends Component {
 
   // to sync with the props changes with are our component state
   // here we check when our props changes then we change our state with new array ref
+  //faced empty state issue before using getDerivedStateFromProps
   static getDerivedStateFromProps(props, current_state) {
     console.log({ props, current_state });
     if (props.movies.length > 0) {
