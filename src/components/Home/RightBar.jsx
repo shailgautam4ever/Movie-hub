@@ -22,6 +22,7 @@ class RightBar extends Component {
         movies: popular,
       };
     }
+    return current_state;
   }
 
   render() {

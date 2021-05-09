@@ -24,6 +24,7 @@ class Movie extends Component {
     console.log(this.props);
     const { movies, match } = this.props;
     const { id } = match.params;
+    console.log({ id, movies });
     const movie = movies[id];
     if (movie) {
       this.setState({ movie });
@@ -50,7 +51,7 @@ class Movie extends Component {
         </div>
         <div className="movie-description">
           <h3>About Uss</h3>
-          <p>Hope you likr our movie!!!!</p>
+          <p>Hope you like our movie!!!!</p>
         </div>
       </>
     );

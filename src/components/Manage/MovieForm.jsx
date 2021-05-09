@@ -1,7 +1,7 @@
 import React from "react";
-import "./AddMovie.css";
+import "./MovieForm.css";
 import "../Home/Home.css";
-import movies from "../../DummyData/movie";
+import { withRouter } from "react-router";
 
 const form = [
   {
@@ -26,12 +26,22 @@ const form = [
     type: "file",
   },
 ];
-export default class AddMovie extends React.Component {
+class MovieForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       newMovie: {},
     };
+  }
+
+  componentDidMount() {
+    const { match, action } = this.props;
+    const { movies } = this.props;
+    if (action === "update") {
+      const { id } = match.params;
+      // console.log(movies[id]);
+      this.setState({ newMovie: movies[id] });
+    }
   }
 
   handleOnStateChange = () => {
@@ -47,6 +57,16 @@ export default class AddMovie extends React.Component {
     const { newMovie } = this.state;
     newMovie[id] = value;
     this.setState({ newMovie });
+    console.log(this.state);
+  };
+
+  handleOnUpdate = () => {
+    const { match, updateMovie } = this.props;
+    const { id } = match.params;
+    updateMovie(this.state.newMovie, id);
+    this.setState({
+      newMovie: {},
+    });
   };
 
   render() {
@@ -55,7 +75,9 @@ export default class AddMovie extends React.Component {
       <>
         <div className="Add-container fd-c">
           <div className="df fd-c jc-sb wrapper">
-            <span className="title">Add New Movie</span>
+            <span className="title">
+              {this.props.action === "add" ? "Add New Movie" : "Update Movie"}
+            </span>
             {form.map(({ label, type, id }) => (
               <div key={id} className="df ai-b jc-sb">
                 <span>{label}</span>
@@ -69,12 +91,21 @@ export default class AddMovie extends React.Component {
             ))}
 
             <div>
-              <button
-                onClick={this.handleOnStateChange}
-                className="custom-button"
-              >
-                Add
-              </button>
+              {this.props.action === "add" ? (
+                <button
+                  onClick={this.handleOnStateChange}
+                  className="custom-button"
+                >
+                  Add
+                </button>
+              ) : (
+                <button
+                  onClick={() => this.handleOnUpdate()}
+                  className="custom-button"
+                >
+                  Update
+                </button>
+              )}
               <button className="custom-button">Cancel</button>
             </div>
           </div>
@@ -83,3 +114,4 @@ export default class AddMovie extends React.Component {
     );
   }
 }
+export default withRouter(MovieForm);

@@ -15,7 +15,9 @@ export default class Manage extends React.Component {
             <div className="df jc-sb show-table">
               <p>{v.name}</p>
               <div>
-                <button className="custom-button">Update</button>
+                <Link to={`/manage/update-movie/${i}`}>
+                  <button className="custom-button">Update</button>
+                </Link>
                 <button
                   className="custom-button"
                   onClick={(e) => handleOnDelete(e, v.id)}

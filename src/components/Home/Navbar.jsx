@@ -7,6 +7,7 @@ class Navbar extends Component {
         <span className="nav-item active">Movies</span>
         <span className="nav-item">TV shows</span>
         <span className="nav-item">Anime</span>
+        <span>{localStorage.getItem("state")}</span>
       </div>
     );
   }

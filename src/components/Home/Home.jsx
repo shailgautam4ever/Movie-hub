@@ -7,16 +7,20 @@ import Navbar from "./Navbar";
 import RightBar from "./RightBar";
 import Manage from "../Manage/Manage";
 import { Redirect, Route, Switch } from "react-router";
-import AddMovie from "../Manage/AddMovie";
 import movies from "../../DummyData/movie";
+import MovieForm from "../Manage/MovieForm";
+import Login from "../Login/Login";
+import Callback from "../Callback";
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       movies: [],
+      user: null, // if user = null: not loggged in
     };
   }
+
   componentDidMount() {
     this.setState({ movies });
   }
@@ -34,8 +38,29 @@ export default class Home extends React.Component {
     this.setState(movies);
   };
 
-  render() {
+  updateMovie = (newMovie, id) => {
     const { movies } = this.state;
+    movies[id] = newMovie;
+    this.setState({ movies });
+  };
+
+  render() {
+    const { movies, user } = this.state;
+
+    if (!user) {
+      return (
+        <Switch>
+          <Route path="/callback">
+            <Callback />
+          </Route>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Redirect to="/"></Redirect>
+        </Switch>
+      );
+    }
+
     return (
       <>
         <div className="main-container">
@@ -46,8 +71,15 @@ export default class Home extends React.Component {
               <Route path="/movie/:id">
                 <Movie movies={movies} />
               </Route>
+              <Route path="/manage/update-movie/:id">
+                <MovieForm
+                  action="update"
+                  movies={movies}
+                  updateMovie={this.updateMovie}
+                />
+              </Route>
               <Route path="/manage/AddMovie">
-                <AddMovie handleOnAdd={this.handleOnAdd} />
+                <MovieForm action="add" handleOnAdd={this.handleOnAdd} />
               </Route>
               <Route path="/manage">
                 <Manage movies={movies} handleOnDelete={this.handleOnDelete} />
